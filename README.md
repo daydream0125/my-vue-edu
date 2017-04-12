@@ -54,7 +54,7 @@ npm run dev
 npm run build
 
 ```
-本地默认访问端口为8091，需要更改的童鞋请到项目目录文件`config/index.js`修改。
+本地默认访问端口为8091，需要更改的童鞋请到项目目录文件`config/course.js`修改。
 
 
 ## 目录结构

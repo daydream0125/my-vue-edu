@@ -48,14 +48,14 @@ var webpackConfig = merge(baseWebpackConfig, {
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin(),
-    // generate dist index.html with correct asset hash for caching.
-    // you can customize output by editing /index.html
+    // generate dist course.html with correct asset hash for caching.
+    // you can customize output by editing /course.html
     // see https://github.com/ampedandwired/html-webpack-plugin
    /* new HtmlWebpackPlugin({
       filename: process.env.NODE_ENV === 'testing'
-        ? 'index.html'
+        ? 'course.html'
         : config.build.index,
-      template: 'index.html',
+      template: 'course.html',
       inject: true,
       minify: {
         removeComments: true,

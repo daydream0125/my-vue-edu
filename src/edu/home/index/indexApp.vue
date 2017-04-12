@@ -9,10 +9,12 @@
                         <h1>注册以关注更多课程内容</h1>
                         <button class="btn btn-lg btn-success">
                             立即注册
+
+
                         </button>
                     </div>
                 </div>
-                <div class="item index-course" v-for="course in courses">
+                <div class="item index-course" v-for="course in sliceCourse(courses,0,2)">
                     <div class="carousel-caption" style="color: black">
                         <h1>{{course.courseName}}</h1>
                         <h3>
@@ -22,6 +24,8 @@
                         <h3>时间：{{course.startTime}}--{{course.endTime}}</h3>
                         <button class="btn btn-lg btn-success">
                             立即参加
+
+
                         </button>
                     </div>
                 </div>
@@ -39,20 +43,19 @@
         <br>
         <div class="container">
             <h1>全部课程</h1>
-            <div class="row" v-for="course in courses">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img :src="course.courseId | formatImgURL">
-                        <div class="caption">
-                            <h3>{{course.courseName}}</h3>
-                            <p>{{course.courseDescription}}</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a>
-                            </p>
-                        </div>
+            <div class="col-md-4 course-block" v-for="(course,index) in courses">
+                <div class="thumbnail" style="overflow: hidden;">
+                    <img :src="course.courseId | formatImgURL" style="height: 235px">
+                    <div class="caption" style="height: 210px;overflow: hidden">
+                        <h3>{{course.courseName}}</h3>
+                        <p>{{course.courseDescription}}</p>
+                        <p><router-link to="/course">abc</router-link>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -79,6 +82,13 @@
         },
         //相关操作事件
         methods: {
+            //截取课程的一部分
+            sliceCourse(course, begin, end) {
+                return course.slice(begin, end);
+            },
+            enter(index){
+                return index % 3 === 0;
+            }
         },
         //已成功挂载，相当ready()
         mounted(){
@@ -106,6 +116,13 @@
 
     .carousel-caption, h1 h2 h3 {
         font-family: Menlo;
+    }
+
+    .course-block {
+        width: 350px;
+        height: 450px;
+        float: left;
+        overflow: hidden;
     }
 
 </style>
