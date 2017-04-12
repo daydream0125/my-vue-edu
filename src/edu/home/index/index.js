@@ -23,7 +23,7 @@ new Vue({
             })
         },
     },
-    //已成功挂载，相当ready()
+    //已成功挂载，相当ready()ABC的
     mounted(){
         this.getAllCourses();
     },
